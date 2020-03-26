@@ -38,6 +38,7 @@ type compileCommand struct {
 	Spec          bool
 	Config        string
 	LimitCPU      int64
+	LimitGPU			int64
 	LimitMemory   int64
 	RequestCPU    int64
 	RequestMemory int64
@@ -111,6 +112,7 @@ func (c *compileCommand) run(*kingpin.ParseContext) error {
 			Limits: compiler.ResourceObject{
 				CPU:    c.LimitCPU,
 				Memory: c.LimitMemory,
+				GPU: c.LimitGPU,
 			},
 			Requests: compiler.ResourceObject{
 				CPU:    c.RequestCPU,
@@ -184,6 +186,9 @@ func registerCompile(app *kingpin.Application) {
 
 	cmd.Flag("limit-memory", "limit container memory").
 		Int64Var(&c.LimitMemory)
+	
+	cmd.Flag("limit-gpu", "limit container gpu").
+		Int64Var(&c.LimitGPU)
 
 	cmd.Flag("request-cpu", "request container cpu").
 		Int64Var(&c.RequestCPU)

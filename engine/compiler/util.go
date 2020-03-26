@@ -99,6 +99,7 @@ func convertResources(src resource.Resources) engine.Resources {
 		Limits: engine.ResourceObject{
 			CPU:    src.Limits.CPU,
 			Memory: int64(src.Limits.Memory),
+			GPU: src.Limits.GPU,
 		},
 		Requests: engine.ResourceObject{
 			CPU:    src.Requests.CPU,

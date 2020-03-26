@@ -275,7 +275,7 @@ func toVolumeMounts(spec *Spec, step *Step) []v1.VolumeMount {
 
 func toResources(src Resources) v1.ResourceRequirements {
 	var dst v1.ResourceRequirements
-	if src.Limits.Memory > 0 || src.Limits.CPU > 0 {
+	if src.Limits.Memory > 0 || src.Limits.CPU > 0 || src.Limits.GPU > 0{
 		dst.Limits = v1.ResourceList{}
 		if src.Limits.Memory > int64(0) {
 			dst.Limits[v1.ResourceMemory] = *resource.NewQuantity(
@@ -284,6 +284,10 @@ func toResources(src Resources) v1.ResourceRequirements {
 		if src.Limits.CPU > int64(0) {
 			dst.Limits[v1.ResourceCPU] = *resource.NewMilliQuantity(
 				src.Limits.CPU, resource.DecimalSI)
+		}
+		if src.Limits.GPU > int64(0) {
+			dst.Limits["nvidia.com/gpu"] = *resource.NewMilliQuantity(
+				src.Limits.GPU, resource.DecimalSI)
 		}
 	}
 	if src.Requests.Memory > 0 || src.Requests.CPU > 0 {

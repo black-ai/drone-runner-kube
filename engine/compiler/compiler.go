@@ -55,6 +55,7 @@ type (
 	ResourceObject struct {
 		CPU    int64
 		Memory int64
+		GPU		 int64
 	}
 
 	// Args provides compiler arguments.
@@ -541,6 +542,9 @@ func (c *Compiler) Compile(ctx context.Context, args Args) *engine.Spec {
 		}
 		if v.Resources.Limits.Memory == 0 {
 			v.Resources.Limits.Memory = c.Resources.Limits.Memory
+		}
+		if v.Resources.Limits.GPU == 0 {
+			v.Resources.Limits.GPU = c.Resources.Limits.GPU
 		}
 	}
 

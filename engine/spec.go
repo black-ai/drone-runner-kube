@@ -124,6 +124,7 @@ type (
 	ResourceObject struct {
 		CPU    int64 `json:"cpu"`
 		Memory int64 `json:"memory"`
+		GPU int64 `json:"nvidia.com/gpu"`
 	}
 
 	// PodSpec ...
