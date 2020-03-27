@@ -286,8 +286,8 @@ func toResources(src Resources) v1.ResourceRequirements {
 				src.Limits.CPU, resource.DecimalSI)
 		}
 		if src.Limits.GPU > int64(0) {
-			dst.Limits["nvidia.com/gpu"] = *resource.NewMilliQuantity(
-				src.Limits.GPU, resource.DecimalSI)
+			dst.Limits["nvidia.com/gpu"] = *resource.NewQuantity(
+				src.Limits.GPU, "")
 		}
 	}
 	if src.Requests.Memory > 0 || src.Requests.CPU > 0 {
