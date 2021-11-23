@@ -200,5 +200,6 @@ type (
 	ResourceObject struct {
 		CPU    int64              `json:"cpu" yaml:"cpu"`
 		Memory manifest.BytesSize `json:"memory"`
+		GPU    int64              `json:"gpu" yaml:"gpu"`
 	}
 )

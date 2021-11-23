@@ -355,6 +355,9 @@ func registerExec(app *kingpin.Application) {
 	cmd.Flag("limit-cpu", "cpu limit in millicores for containers").
 		Int64Var(&c.Resource.Limits.CPU)
 
+	cmd.Flag("limit-gpu", "gpu limit for containers").
+		Int64Var(&c.Resource.Limits.GPU)
+
 	cmd.Flag("request-memory", "memory in MiB for entire pod").
 		Default("100"). // Default is 100MiB
 		Int64Var(&c.StageRequests.Memory)

@@ -99,6 +99,7 @@ func TestParse(t *testing.T) {
 						Limits: ResourceObject{
 							CPU:    1000,
 							Memory: 524288000,
+							GPU:    1,
 						},
 					},
 					Failure: "ignore",

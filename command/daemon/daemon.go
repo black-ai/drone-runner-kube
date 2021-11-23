@@ -171,6 +171,7 @@ func (c *daemonCommand) run(*kingpin.ParseContext) error {
 				Limits: compiler.ResourceObject{
 					CPU:    config.Resources.LimitCPU,
 					Memory: int64(config.Resources.LimitMemory),
+					GPU:    config.Resources.LimitGPU,
 				},
 				MinRequests: compiler.ResourceObject{
 					CPU:    config.Resources.MinRequestCPU,

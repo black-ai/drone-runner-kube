@@ -58,6 +58,7 @@ type (
 	ResourceObject struct {
 		CPU    int64
 		Memory int64
+		GPU    int64
 	}
 
 	// Tmate defines tmate settings.

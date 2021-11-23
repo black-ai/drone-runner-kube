@@ -68,6 +68,7 @@ type Config struct {
 	Resources struct {
 		LimitCPU      int64     `envconfig:"DRONE_RESOURCE_LIMIT_CPU"`
 		LimitMemory   BytesSize `envconfig:"DRONE_RESOURCE_LIMIT_MEMORY"`
+		LimitGPU      int64     `envconfig:"DRONE_RESOURCE_LIMIT_GPU"`		
 		RequestCPU    int64     `envconfig:"DRONE_RESOURCE_REQUEST_CPU" default:"100"`
 		RequestMemory BytesSize `envconfig:"DRONE_RESOURCE_REQUEST_MEMORY" default:"104857600"` // default 100MB
 		// Defaults for min memory & cpu requests are set to ensure that default limitrange values are not used.
